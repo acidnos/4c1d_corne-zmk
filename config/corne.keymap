@@ -52,10 +52,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans     &trans          &trans              &trans    &trans  &trans       &trans         &trans          &kp UP_ARROW  &trans         &trans     &kp DEL
-&kp CAPS   &trans          &trans              &trans    &trans  &trans       &trans         &kp LEFT        &kp DOWN      &kp RIGHT      &kp PG_UP  &kp HOME
-&kp LSHFT  &kp LS(LG(N4))  &kp LS(LC(LG(N4)))  &trans    &trans  &trans       &kp LG(SPACE)  &kp LC(LEFT)    &kp LC(LBRC)  &kp LC(RIGHT)  &kp PG_DN  &kp END
-                                               &kp LGUI  &mo 3   &kp SPACE    &kp SPACE      &studio_unlock  &kp RALT
+&trans     &trans          &trans              &trans    &trans    &trans       &trans         &trans          &kp UP_ARROW  &trans         &trans     &kp DEL
+&kp CAPS   &trans          &kp LSHFT           &kp LALT  &kp LGUI  &trans       &trans         &kp LEFT        &kp DOWN      &kp RIGHT      &kp PG_UP  &kp HOME
+&kp LSHFT  &kp LS(LG(N4))  &kp LS(LC(LG(N4)))  &trans    &trans    &trans       &kp LG(SPACE)  &kp LC(LEFT)    &kp LC(LBRC)  &kp LC(RIGHT)  &kp PG_DN  &kp END
+                                               &kp LGUI  &mo 3     &kp SPACE    &kp SPACE      &studio_unlock  &kp RALT
             >;
         };
 
