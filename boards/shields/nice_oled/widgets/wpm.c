@@ -74,6 +74,8 @@ static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
   // lv_canvas_draw_line(canvas, points, 2, &line_dsc);
 }
 
+/*
+
 static void draw_grid(lv_obj_t *canvas) {
   lv_draw_img_dsc_t img_dsc;
   lv_draw_img_dsc_init(&img_dsc);
@@ -130,6 +132,7 @@ static void draw_graph(lv_obj_t *canvas, const struct status_state *state) {
 
   lv_canvas_draw_line(canvas, points, 10, &line_dsc);
 }
+*/
 
 static void draw_label(lv_obj_t *canvas, const struct status_state *state) {
   lv_draw_label_dsc_t label_dsc_wpm;
