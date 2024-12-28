@@ -26,8 +26,7 @@
 ### nice_oled START ###
     # nice_nano_v2 + nice_oled
   - board: nice_nano_v2
-    shield: corne_left nice_oled
-    cmake-args: -DCONFIG_ZMK_KEYBOARD_NAME=\"Nice_Corne_Oled\"
+    shield: corne_left
     artifact-name: nice_corne_left_oled
 
   - board: nice_nano_v2
