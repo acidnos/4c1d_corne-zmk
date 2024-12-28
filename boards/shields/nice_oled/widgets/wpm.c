@@ -213,7 +213,7 @@ void draw_wpm_status(lv_obj_t *canvas, const struct status_state *state) {
   draw_needle(canvas, state);
 //  draw_grid(canvas);
 //  draw_graph(canvas, state);
-//  draw_label(canvas, state);
+  draw_label(canvas, state);
   // TODO: STAR
   // draw_bongocat(canvas, state);
   // TODO: END
