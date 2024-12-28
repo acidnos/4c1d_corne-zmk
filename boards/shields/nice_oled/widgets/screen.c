@@ -40,7 +40,7 @@ static void draw_canvas(lv_obj_t *widget, lv_color_t cbuf[],
   draw_output_status(canvas, state);
   draw_battery_status(canvas, state);
   draw_wpm_status(canvas, state);
-  draw_profile_status(canvas, state);
+ # draw_profile_status(canvas, state);
   draw_layer_status(canvas, state);
 
   // Rotate for horizontal display
@@ -123,7 +123,7 @@ ZMK_SUBSCRIPTION(widget_layer_status, zmk_layer_state_changed);
 /**
  * Output status
  **/
-
+/*
 static void set_output_status(struct zmk_widget_screen *widget,
                               const struct output_status_state *state) {
   widget->state.selected_endpoint = state->selected_endpoint;
@@ -161,7 +161,7 @@ ZMK_SUBSCRIPTION(widget_output_status, zmk_usb_conn_state_changed);
 #if defined(CONFIG_ZMK_BLE)
 ZMK_SUBSCRIPTION(widget_output_status, zmk_ble_active_profile_changed);
 #endif
-
+*/
 /**
  * WPM status
  **/
@@ -207,7 +207,7 @@ int zmk_widget_screen_init(struct zmk_widget_screen *widget, lv_obj_t *parent) {
   sys_slist_append(&widgets, &widget->node);
   widget_battery_status_init();
   widget_layer_status_init();
-  widget_output_status_init();
+ # widget_output_status_init();
   widget_wpm_status_init();
 
   return 0;
