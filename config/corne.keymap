@@ -12,7 +12,7 @@
 
 / {
     behaviors {
-        Esc Esc
+        Esc: Esc
 
         NUBS: Esc_NUBS {
             compatible = "zmk,behavior-tap-dance";
