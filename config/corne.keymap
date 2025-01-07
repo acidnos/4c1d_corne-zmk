@@ -43,6 +43,13 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        TABU: TABU {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TABU";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp LS(TAB)>;
+        };
     };
 
     keymap {
@@ -80,10 +87,10 @@
 
         Lower {
             bindings = <
-&kp NON_US_BACKSLASH  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans                &trans        &trans        &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans                &trans        &trans        &trans        &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                                  &trans        &trans  &trans    &trans  &trans  &trans
+&kp NON_US_BACKSLASH  &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3              &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7                 &kp N8         &kp N9            &kp N0                &kp DEL
+&mo 5                 &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp RA(NON_US_BACKSLASH)  &kp LS(NUMBER_2)  &kp LS(N5)    &kp LS(N7)    &kp LS(N9)             &kp LS(N8)     &kp LS(NUMBER_6)  &kp LS(N0)            &lt 5 SINGLE_QUOTE
+&mo 3                 &kp RA(GRAVE)     &kp MINUS         &kp LS(NUMBER_3)          &kp LS(NUMBER_2)  &Exclamaci    &Interrogaci  &kp RA(RIGHT_BRACKET)  &kp RA(CLEAR)  &kp NON_US_HASH   &kp RA(SINGLE_QUOTE)  &mo 3
+                                                          &kp LGUI                  &trans            &kp SPACE     &kp ENTER     &trans                 &kp RGUI
             >;
         };
 
@@ -95,28 +102,28 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&Esc NUBS     &trans          &trans              &trans    &trans    &trans       &trans         &trans          &kp UP_ARROW  &trans         &trans     &kp DEL
-&mt LCMD TAB  &trans          &kp LSHFT           &kp LALT  &kp LGUI  &trans       &trans         &kp LEFT        &kp DOWN      &kp RIGHT      &kp PG_UP  &kp HOME
-&kp LSHFT     &kp LS(LG(N4))  &kp LS(LC(LG(N4)))  &trans    &trans    &trans       &kp LG(SPACE)  &kp LC(LEFT)    &kp LC(LBRC)  &kp LC(RIGHT)  &kp PG_DN  &kp END
-                                                  &kp LGUI  &mo 4     &kp SPACE    &kp SPACE      &studio_unlock  &kp RALT
-            >;
-        };
-
-        Adj {
-            bindings = <
-&sys_reset      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4     &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &trans  &to 5
-&trans          &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4    &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &trans  &trans
-&bt BT_CLR_ALL  &trans         &trans         &trans         &trans         &bt BT_CLR       &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans           &trans  &trans
-                                              &trans         &trans         &trans           &trans           &trans           &trans
+&kp GRAVE  &trans  &kp PG_UP  &kp UP    &kp HOME   &kp LS(LG(NUMBER_4))        &trans    &kp HOME     &kp UP_ARROW  &kp PG_UP          &trans  &kp DEL
+&kp CAPS   &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &kp LS(LC(LG(NUMBER_4)))    &trans    &kp LEFT     &kp DOWN      &kp RIGHT          &none   &kp ENTER
+&kp LCTRL  &none   &kp PG_DN  &trans    &kp END    &trans                      &none     &kp LC(END)  &none         &kp LC(PAGE_DOWN)  &none   &kp RCTRL
+                              &none     &kp LGUI   &kp LALT                    &kp RALT  &kp RGUI     &none
             >;
         };
 
         NLock {
             bindings = <
-&to 0      &trans    &kp UP_ARROW  &trans     &trans  &trans       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &kp KP_DIVIDE  &kp KP_EQUAL
-&kp TAB    &kp LEFT  &kp DOWN      &kp RIGHT  &trans  &trans       &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS     &kp KP_PLUS    &kp ENTER
-&kp LSHFT  &trans    &trans        &trans     &trans  &trans       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_COMMA     &kp KP_EQUAL   &kp KP_COMMA
-                                   &kp LGUI   &trans  &kp SPACE    &trans           &kp KP_NUMBER_0  &kp KP_DOT
+&kp F1     &kp F2  &kp F3  &kp F4    &kp F5   &kp F6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &kp KP_DIVIDE  &kp DEL
+&kp F7     &kp F8  &kp F9  &kp F10   &kp F11  &kp F12      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &kp MINUS      &kp ENTER
+&kp LSHFT  &tog 1  &trans  &trans    &trans   &trans       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL        &kp KP_COMMA   &TABU
+                           &kp LGUI  &trans   &kp SPACE    &kp SPACE        &kp KP_NUMBER_0  &kp KP_DOT
+            >;
+        };
+
+        Adj {
+            bindings = <
+&sys_reset      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4     &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &none
+&trans          &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4    &rgb_ug RGB_EFR  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
+&bt BT_CLR_ALL  &trans         &trans         &trans         &trans         &bt BT_CLR       &rgb_ug RGB_TOG  &none            &none            &trans           &trans           &trans
+                                              &trans         &trans         &trans           &trans           &trans           &trans
             >;
         };
 
