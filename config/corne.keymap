@@ -11,10 +11,44 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+    behaviors {
+        Esc Esc
+
+        NUBS: Esc_NUBS {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESC NUBS";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp NUBS>;
+        };
+
+        Interrogaci: Interrogaci_n {
+            compatible = "zmk,behavior-tap-dance";
+            label = "INTERROGACIÓN";
+            #binding-cells = <0>;
+            bindings = <&kp LS(MINUS)>, <&kp LS(EQUAL)>;
+        };
+
+        Exclamaci: Exclamaci_n {
+            compatible = "zmk,behavior-tap-dance";
+            label = "EXCLAMACIÓN";
+            #binding-cells = <0>;
+            bindings = <&kp LS(NUMBER_1)>, <&kp LS(EQUAL)>;
+        };
+
+        Del: Del_Mod {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DEL MOD";
+            bindings = <&kp BSPC>, <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        Base {
+        ESK {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -22,14 +56,14 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O    &kp P      &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H      &kp J  &kp K      &kp L    &kp SEMI   &kp ENTER
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N      &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RSHFT
-                         &kp LGUI  &mo 1  &kp SPACE    &kp SPACE  &mo 2  &kp RALT
+&Esc NUBS        &kp W  &kp Q  &kp P     &kp T  &kp SINGLE_QUOTE    &kp J      &kp Y  &kp U      &kp G    &kp SEMICOLON  &Del Mod
+&mt LCMD TAB     &kp D  &kp S  &kp N     &kp R  &kp V               &kp H      &kp A  &kp E      &kp O    &kp I          &kp ENTER
+&mt LSHFT GRAVE  &kp Z  &kp X  &kp C     &kp L  &kp B               &kp F      &kp M  &kp COMMA  &kp DOT  &kp K          &mt RSHFT MINUS
+                               &kp LGUI  &mo 3  &kp SPACE           &kp ENTER  &mo 3  &kp RALT
             >;
         };
 
-        Lower {
+        Qwerty {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -37,10 +71,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp NON_US_BSLH  &kp N1      &kp N2      &kp N3      &kp N4            &kp N5              &kp N6      &kp N7            &kp N8        &kp N9                &kp N0         &kp DEL
-&kp TAB          &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp LS(NUMBER_4)  &kp LS(NUMBER_5)    &kp LS(N6)  &kp LS(NUMBER_7)  &kp LS(N8)    &kp LS(NUMBER_9)      &kp LS(MINUS)  &kp SINGLE_QUOTE
-&kp LSHFT        &kp GRAVE   &kp RBKT    &kp EQUAL   &kp RA(N3)        &kp RA(N2)          &kp EQUAL   &kp RA(LBKT)      &kp RA(RBKT)  &kp RA(SINGLE_QUOTE)  &kp RA(BSLH)   &kp RSHFT
-                                         &kp LGUI    &trans            &kp SPACE           &kp SPACE   &mo 3             &kp RALT
+&kp NON_US_BSLH  &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O       &kp P          &kp DEL
+&mt LCTRL TAB    &kp A  &kp S  &kp D     &kp F  &kp G        &kp H      &kp J  &kp K      &kp L       &kp SEMICOLON  &kp ENTER
+&mt LSHFT GRAVE  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N      &kp M  &kp COMMA  &kp PERIOD  &kp RA(MINUS)  &kp RSHFT
+                               &kp LGUI  &mo 3  &kp SPACE    &kp ENTER  &mo 3  &kp RALT
+            >;
+        };
+
+        Lower {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
@@ -52,16 +95,16 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans     &trans          &trans              &trans    &trans    &trans       &trans         &trans          &kp UP_ARROW  &trans         &trans     &kp DEL
-&kp CAPS   &trans          &kp LSHFT           &kp LALT  &kp LGUI  &trans       &trans         &kp LEFT        &kp DOWN      &kp RIGHT      &kp PG_UP  &kp HOME
-&kp LSHFT  &kp LS(LG(N4))  &kp LS(LC(LG(N4)))  &trans    &trans    &trans       &kp LG(SPACE)  &kp LC(LEFT)    &kp LC(LBRC)  &kp LC(RIGHT)  &kp PG_DN  &kp END
-                                               &kp LGUI  &mo 3     &kp SPACE    &kp SPACE      &studio_unlock  &kp RALT
+&Esc NUBS     &trans          &trans              &trans    &trans    &trans       &trans         &trans          &kp UP_ARROW  &trans         &trans     &kp DEL
+&mt LCMD TAB  &trans          &kp LSHFT           &kp LALT  &kp LGUI  &trans       &trans         &kp LEFT        &kp DOWN      &kp RIGHT      &kp PG_UP  &kp HOME
+&kp LSHFT     &kp LS(LG(N4))  &kp LS(LC(LG(N4)))  &trans    &trans    &trans       &kp LG(SPACE)  &kp LC(LEFT)    &kp LC(LBRC)  &kp LC(RIGHT)  &kp PG_DN  &kp END
+                                                  &kp LGUI  &mo 4     &kp SPACE    &kp SPACE      &studio_unlock  &kp RALT
             >;
         };
 
         Adj {
             bindings = <
-&sys_reset      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4     &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &trans  &to 4
+&sys_reset      &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4     &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &trans  &to 5
 &trans          &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4    &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_SPD  &rgb_ug RGB_BRD  &trans  &trans
 &bt BT_CLR_ALL  &trans         &trans         &trans         &trans         &bt BT_CLR       &rgb_ug RGB_TOG  &rgb_ug RGB_EFR  &rgb_ug RGB_EFF  &trans           &trans  &trans
                                               &trans         &trans         &trans           &trans           &trans           &trans
