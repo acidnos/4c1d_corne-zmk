@@ -12,13 +12,6 @@
 
 / {
     behaviors {
-        Escnubs: NUBS: Esc_NUBS {
-            compatible = "zmk,behavior-tap-dance";
-            label = "ESC NUBS";
-            #binding-cells = <0>;
-            bindings = <&kp ESC>, <&kp NUBS>;
-        };
-
         Interrogaci: Interrogaci_n {
             compatible = "zmk,behavior-tap-dance";
             label = "INTERROGACIÓN";
@@ -61,7 +54,7 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&Escnubs         &kp W  &kp Q  &kp P     &kp T  &kp SINGLE_QUOTE    &kp J      &kp Y  &kp U      &kp G    &kp SEMICOLON  &Del Mod
+&kp ESC          &kp W  &kp Q  &kp P     &kp T  &kp SINGLE_QUOTE    &kp J      &kp Y  &kp U      &kp G    &kp SEMICOLON  &Del Mod
 &mt LCMD TAB     &kp D  &kp S  &kp N     &kp R  &kp V               &kp H      &kp A  &kp E      &kp O    &kp I          &kp ENTER
 &mt LSHFT GRAVE  &kp Z  &kp X  &kp C     &kp L  &kp B               &kp F      &kp M  &kp COMMA  &kp DOT  &kp K          &mt RSHFT MINUS
                                &kp LGUI  &mo 2  &kp SPACE           &kp ENTER  &mo 2  &kp RALT
@@ -76,7 +69,7 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&Escnubs         &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O       &kp P          &kp DEL
+&kp ESC          &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y      &kp U  &kp I      &kp O       &kp P          &kp DEL
 &mt LCTRL TAB    &kp A  &kp S  &kp D     &kp F  &kp G        &kp H      &kp J  &kp K      &kp L       &kp SEMICOLON  &kp ENTER
 &mt LSHFT GRAVE  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N      &kp M  &kp COMMA  &kp PERIOD  &kp RA(MINUS)  &kp RSHFT
                                &kp LGUI  &mo 2  &kp SPACE    &kp ENTER  &mo 2  &kp RALT
@@ -85,10 +78,10 @@
 
         Lower {
             bindings = <
-&kp NON_US_BACKSLASH  &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3              &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7                 &kp N8         &kp N9            &kp N0                &kp DEL
-&mo 5                 &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp RA(NON_US_BACKSLASH)  &kp LS(NUMBER_2)  &kp LS(N5)    &kp LS(N7)    &kp LS(N9)             &kp LS(N8)     &kp LS(NUMBER_6)  &kp LS(N0)            &lt 5 SINGLE_QUOTE
-&mo 3                 &kp RA(GRAVE)     &kp MINUS         &kp LS(NUMBER_3)          &kp LS(NUMBER_2)  &Exclamaci    &Interrogaci  &kp RA(RIGHT_BRACKET)  &kp RA(CLEAR)  &kp NON_US_HASH   &kp RA(SINGLE_QUOTE)  &mo 3
-                                                          &kp LGUI                  &trans            &kp SPACE     &kp ENTER     &trans                 &kp RGUI
+&kp GRAVE  &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3              &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7                 &kp N8         &kp N9            &kp N0                &kp DEL
+&mo 5      &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp RA(NON_US_BACKSLASH)  &kp LS(NUMBER_2)  &kp LS(N5)    &kp LS(N7)    &kp LS(N9)             &kp LS(N8)     &kp LS(NUMBER_6)  &kp LS(N0)            &lt 5 SINGLE_QUOTE
+&mo 3      &kp RA(GRAVE)     &kp MINUS         &kp LS(NUMBER_3)          &kp LS(NUMBER_2)  &Exclamaci    &Interrogaci  &kp RA(RIGHT_BRACKET)  &kp RA(CLEAR)  &kp NON_US_HASH   &kp RA(SINGLE_QUOTE)  &mo 3
+                                               &kp LGUI                  &trans            &kp SPACE     &kp ENTER     &trans                 &kp RGUI
             >;
         };
 
