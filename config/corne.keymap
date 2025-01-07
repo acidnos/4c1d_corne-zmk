@@ -26,7 +26,7 @@
             bindings = <&kp LS(NUMBER_1)>, <&kp LS(EQUAL)>;
         };
 
-        Del: Del_Mod {
+        Dele: Del_Mod {
             compatible = "zmk,behavior-mod-morph";
             label = "DEL MOD";
             bindings = <&kp BSPC>, <&kp DEL>;
@@ -54,7 +54,7 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESC          &kp W  &kp Q  &kp P     &kp T  &kp SINGLE_QUOTE    &kp J      &kp Y  &kp U      &kp G    &kp SEMICOLON  &Del Mod
+&kp ESC          &kp W  &kp Q  &kp P     &kp T  &kp SINGLE_QUOTE    &kp J      &kp Y  &kp U      &kp G    &kp SEMICOLON  &Dele
 &mt LCMD TAB     &kp D  &kp S  &kp N     &kp R  &kp V               &kp H      &kp A  &kp E      &kp O    &kp I          &kp ENTER
 &mt LSHFT GRAVE  &kp Z  &kp X  &kp C     &kp L  &kp B               &kp F      &kp M  &kp COMMA  &kp DOT  &kp K          &mt RSHFT MINUS
                                &kp LGUI  &mo 2  &kp SPACE           &kp ENTER  &mo 2  &kp RALT
