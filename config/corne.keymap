@@ -55,8 +55,8 @@
 
             bindings = <
 &kp ESC          &kp W  &kp Q  &kp P     &kp T  &kp SINGLE_QUOTE    &kp J      &kp Y  &kp I      &kp G    &kp SEMICOLON  &Dele
-&mt LCMD TAB     &kp D  &kp S  &kp N     &kp R  &kp V               &kp H      &kp A  &kp E      &kp O    &kp U          &kp ENTER
-&mt LSHFT GRAVE  &kp Z  &kp X  &kp C     &kp L  &kp B               &kp F      &kp M  &kp COMMA  &kp DOT  &kp K          &mt RSHFT MINUS
+&mt LCMD TAB     &kp F  &kp S  &kp N     &kp R  &kp V               &kp H      &kp A  &kp E      &kp O    &kp U          &kp ENTER
+&mt LSHFT GRAVE  &kp X  &kp D  &kp C     &kp L  &kp B               &kp Z      &kp M  &kp COMMA  &kp DOT  &kp K          &mt RSHFT MINUS
                                &kp LGUI  &mo 2  &kp SPACE           &kp ENTER  &mo 2  &kp RALT
             >;
         };
@@ -80,7 +80,7 @@
             bindings = <
 &kp GRAVE  &kp NUMBER_1      &kp NUMBER_2      &kp NUMBER_3              &kp NUMBER_4      &kp N5        &kp NUMBER_6  &kp N7                 &kp N8         &kp N9            &kp N0                &kp DEL
 &mo 5      &kp LS(NUMBER_3)  &kp LS(NUMBER_4)  &kp RA(NON_US_BACKSLASH)  &kp LS(NUMBER_2)  &kp LS(N5)    &kp LS(N7)    &kp LS(N9)             &kp LS(N8)     &kp LS(NUMBER_6)  &kp LS(N0)            &lt 5 SINGLE_QUOTE
-&mo 3      &kp RA(GRAVE)     &kp MINUS         &kp LS(NUMBER_3)          &kp LS(NUMBER_2)  &Exclamaci    &Interrogaci  &kp RA(RIGHT_BRACKET)  &kp RA(CLEAR)  &kp NON_US_HASH   &kp RA(SINGLE_QUOTE)  &mo 3
+&mo 3      &kp RA(NUMBER_1)  &kp SQT           &kp RA(NUMBER_3)          &kp RA(NUMBER_2)  &Exclamaci    &Interrogaci  &kp RA(RIGHT_BRACKET)  &kp RA(CLEAR)  &kp NON_US_HASH   &kp RA(SINGLE_QUOTE)  &mo 3
                                                &kp LGUI                  &mo 5             &kp SPACE     &kp ENTER     &mo 5                  &kp RGUI
             >;
         };
@@ -93,10 +93,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp GRAVE  &trans  &kp PG_UP  &kp UP    &kp HOME   &kp LS(LG(NUMBER_4))        &trans    &kp HOME     &kp UP_ARROW  &kp PG_UP          &trans  &kp DEL
-&kp CAPS   &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &kp LS(LC(LG(NUMBER_4)))    &trans    &kp LEFT     &kp DOWN      &kp RIGHT          &none   &kp ENTER
-&kp LCTRL  &none   &kp PG_DN  &trans    &kp END    &trans                      &none     &kp LC(END)  &none         &kp LC(PAGE_DOWN)  &none   &kp RCTRL
-                              &none     &kp LGUI   &kp LALT                    &kp RALT  &kp RGUI     &none
+&kp GRAVE  &trans  &kp PG_UP  &kp UP    &kp HOME   &kp LS(LG(NUMBER_4))        &kp LS(LG(NUMBER_4))      &kp HOME     &kp UP_ARROW  &kp PG_UP          &trans  &kp DEL
+&kp CAPS   &trans  &kp LEFT   &kp DOWN  &kp RIGHT  &kp LS(LC(LG(NUMBER_4)))    &kp LS(LC(LG(NUMBER_4)))  &kp LEFT     &kp DOWN      &kp RIGHT          &none   &kp ENTER
+&kp LCTRL  &none   &kp PG_DN  &trans    &kp END    &trans                      &none                     &kp LC(END)  &none         &kp LC(PAGE_DOWN)  &none   &kp RCTRL
+                              &none     &kp LGUI   &kp LALT                    &kp RALT                  &kp RGUI     &none
             >;
         };
 
@@ -104,7 +104,7 @@
             bindings = <
 &kp F1     &kp F2  &kp F3  &kp F4    &kp F5   &kp F6       &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_ASTERISK  &kp KP_DIVIDE  &kp DEL
 &kp F7     &kp F8  &kp F9  &kp F10   &kp F11  &kp F12      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp PLUS         &kp MINUS      &kp ENTER
-&kp LSHFT  &tog 1  &trans  &trans    &trans   &trans       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL        &kp KP_COMMA   &TABU
+&kp LSHFT  &tog 0  &tog 1  &trans    &trans   &trans       &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp EQUAL        &kp KP_COMMA   &TABU
                            &kp LGUI  &trans   &kp SPACE    &kp SPACE        &kp KP_NUMBER_0  &kp KP_DOT
             >;
         };
